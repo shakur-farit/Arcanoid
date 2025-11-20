@@ -6,7 +6,8 @@ namespace Code.Gameplay.Environment
   {
     public int XSize;
     public int YSize;
-    public int CellSize;
+    public float CellWidth;
+    public float CellHeight;
     public Vector2 StartPosition;
   }
 }

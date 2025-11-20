@@ -14,12 +14,14 @@ namespace Code.Infrastructure.StaticData
 	{
     private const string EnvironmentConfigPath = "EnvironmentConfig";
     private const string GridConfigPath = "GridConfig";
+    private const string BrickConfigPath = "BrickConfig";
 
     private const string WindowConfigLabel = "WindowConfig";
     private const string MusicConfigLabel = "MusicConfig";
 
     private EnvironmentConfig _environment;
     private GridConfig _grid;
+    private BrickConfig _brick;
 
     private Dictionary<WindowId, WindowConfig> _windowById;
     private Dictionary<MusicTypeId, MusicConfig> _musicById;
@@ -33,6 +35,7 @@ namespace Code.Infrastructure.StaticData
 		{
       await LoadEnvironment();
       await LoadGrid();
+      await LoadBrick();
       await LoadWindows();
       await LoadMusic();
     }
@@ -42,6 +45,9 @@ namespace Code.Infrastructure.StaticData
 
     public GridConfig GetGridConfig() =>
       _grid;
+
+    public BrickConfig GetBrickConfig() => 
+	    _brick;
 
     public WindowConfig GetWindowConfig(WindowId id)
 		{
@@ -65,7 +71,11 @@ namespace Code.Infrastructure.StaticData
     private async UniTask LoadGrid() =>
       _grid = await _assetProvider.Load<GridConfig>(GridConfigPath);
 
-    private async UniTask LoadWindows() =>
+    private async UniTask LoadBrick() =>
+	    _brick = await _assetProvider.Load<BrickConfig>(BrickConfigPath);
+
+
+		private async UniTask LoadWindows() =>
 			_windowById = (await _assetProvider.LoadAll<WindowConfig>(WindowConfigLabel))
 				.ToDictionary(x => x.TypeId, x => x);
 

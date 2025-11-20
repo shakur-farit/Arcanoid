@@ -8,25 +8,29 @@ namespace Code.Infrastructure.States.GameStates
 	public class GameplayState : IState
 	{
 		private readonly IWindowService _windowService;
-    private readonly IGridFactory _gridFactory;
+    private readonly ILevelBuilder _levelBuilder;
 
-    public GameplayState(IWindowService windowService, IGridFactory gridFactory)
+    public GameplayState(IWindowService windowService, ILevelBuilder levelBuilder)
     {
       _windowService = windowService;
-      _gridFactory = gridFactory;
+      _levelBuilder = levelBuilder;
     }
 
 		public void Enter()
 		{
 			OpenHudWindow();
-      _gridFactory.CreateGrid();
-    }
+			CreateLevel();
+		}
 
-    public void Exit()
+		public void Exit()
 		{
 		}
 
-    private void OpenHudWindow() => 
-      _windowService.Open(WindowId.Hud);
-  }
+		private void OpenHudWindow() => 
+			_windowService.Open(WindowId.Hud);
+
+		
+		private void CreateLevel() => 
+			_levelBuilder.CreateLevel();
+	}
 }

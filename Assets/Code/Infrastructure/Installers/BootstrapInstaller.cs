@@ -69,13 +69,19 @@ namespace Code.Infrastructure.Installers
 			Container.Bind<IRestartingService>().To<RestartingService>().AsSingle();
 			Container.Bind<IValidPositionProvider>().To<ValidPositionProvider>().AsSingle();
 			Container.Bind<IGridDataProvider>().To<GridDataProvider>().AsSingle();
+			Container.Bind<ILevelBuilder>().To<LevelBuilder>().AsSingle();
     }
 
 		public void BindGameplayFactories()
 		{
       Container.Bind<IEnvironmentFactory>().To<EnvironmentFactory>().AsSingle();
-      Container.Bind<IGridFactory>().To<GridFactory>().AsSingle();
-    }
+      Container.Bind<IBrickFactory>().To<BrickFactory>().AsSingle();
+
+      Container.Bind<IGridGeneratorFactory>().To<GridGeneratorFactory>().AsSingle();
+
+      Container.Bind<SquareGridGenerator>().AsSingle();
+      Container.Bind<TriangleGridGenerator>().AsSingle();
+		}
 
     public void BindUIServices() => 
 			Container.Bind<IWindowService>().To<WindowService>().AsSingle();

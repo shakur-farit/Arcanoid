@@ -87,6 +87,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - MusicConfig
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c59f769e2b8c3744493fbcd54a3c0dd7
+    m_Address: BrickConfig
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc32b879fa72fe94d84292d34ee9366d
     m_Address: Assets/StaticData/Window/HudWindowConfig.asset
     m_ReadOnly: 0

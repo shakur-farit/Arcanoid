@@ -27,10 +27,10 @@ namespace Code.Gameplay.Environment
       float availableWidth = topRight.x - bottomLeft.x;
       float availableHeight = topRight.y - bottomLeft.y;
 
-      int gridWidth = Mathf.FloorToInt(availableWidth / config.CellSize);
-      int gridHeight = Mathf.FloorToInt(availableHeight / config.CellSize);
+      int gridWidth = Mathf.FloorToInt(availableWidth / config.CellWidth);
+      int gridHeight = Mathf.FloorToInt(availableHeight / config.CellHeight);
 
-      float leftoverX = availableWidth - (gridWidth * config.CellSize);
+      float leftoverX = availableWidth - (gridWidth * config.CellWidth);
 
       Vector2 startPosition = new Vector2(bottomLeft.x + leftoverX / 2f, topRight.y);
 
@@ -38,7 +38,8 @@ namespace Code.Gameplay.Environment
       {
         XSize = gridWidth,
         YSize = gridHeight,
-        CellSize = config.CellSize,
+        CellWidth = config.CellWidth,
+        CellHeight = config.CellHeight,
         StartPosition = startPosition
       };
     }
