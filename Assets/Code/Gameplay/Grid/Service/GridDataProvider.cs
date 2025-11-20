@@ -24,15 +24,22 @@ namespace Code.Gameplay.Environment
       Vector3 bottomLeft = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, mainCamera.nearClipPlane));
       Vector3 topRight = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, mainCamera.nearClipPlane));
 
+      bottomLeft.x += config.LeftPadding;
+      topRight.x -= config.RightPadding;
+      topRight.y -= config.TopPadding;
+
       float availableWidth = topRight.x - bottomLeft.x;
       float availableHeight = topRight.y - bottomLeft.y;
 
       int gridWidth = Mathf.FloorToInt(availableWidth / config.CellWidth);
       int gridHeight = Mathf.FloorToInt(availableHeight / config.CellHeight);
 
-      float leftoverX = availableWidth - (gridWidth * config.CellWidth);
+      float leftoverX = availableWidth - gridWidth * config.CellWidth;
 
-      Vector2 startPosition = new Vector2(bottomLeft.x + leftoverX / 2f, topRight.y);
+      Vector2 startPosition = new Vector2(
+        bottomLeft.x + leftoverX / 2f,
+        topRight.y
+      );
 
       return new GridData
       {

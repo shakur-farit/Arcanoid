@@ -23,7 +23,7 @@ namespace Code.Gameplay.Environment
 
 		public void CreateLevel()
 		{
-			IGridGenerator gridGenerator =_generatorFactory.Create(GridTypeId.Square);
+			IGridGenerator gridGenerator =_generatorFactory.Create(GridTypeId.CheckmateTriangle);
 			gridGenerator.GenerateGrid();
 
 			GridData gridData = _gridDataProvider.GetGridData();

@@ -15,6 +15,8 @@ namespace Code.Gameplay.Environment
 			{
 				GridTypeId.Square => _container.Resolve<SquareGridGenerator>(),
 				GridTypeId.Triangle => _container.Resolve<TriangleGridGenerator>(),
+				GridTypeId.CheckmateSquare => _container.Resolve<CheckmateSquareGridGenerator>(),
+				GridTypeId.CheckmateTriangle => _container.Resolve<CheckmateTriangleGridGenerator>(),
 				_ => throw new System.NotImplementedException(
 					$"Grid type {typeId} not supported")
 			};

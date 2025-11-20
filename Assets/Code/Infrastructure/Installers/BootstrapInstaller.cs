@@ -81,6 +81,8 @@ namespace Code.Infrastructure.Installers
 
       Container.Bind<SquareGridGenerator>().AsSingle();
       Container.Bind<TriangleGridGenerator>().AsSingle();
+      Container.Bind<CheckmateSquareGridGenerator>().AsSingle();
+      Container.Bind<CheckmateTriangleGridGenerator>().AsSingle();
 		}
 
     public void BindUIServices() => 

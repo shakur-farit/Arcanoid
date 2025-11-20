@@ -7,5 +7,8 @@ namespace Code.Gameplay.Environment
   {
     [Range(0.1f, 10f)] public float CellWidth;
 		[Range(0.1f, 10f)] public float CellHeight;
+		[Range(0.1f, 10f)] public float TopPadding;
+		[Range(0.1f, 10f)] public float RightPadding;
+		[Range(0.1f, 10f)] public float LeftPadding;
   }
 }

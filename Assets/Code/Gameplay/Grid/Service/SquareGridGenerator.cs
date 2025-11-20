@@ -23,7 +23,7 @@ namespace Code.Gameplay.Environment
 			float startX = gridData.StartPosition.x;
 			float startY = gridData.StartPosition.y;
 
-			for (int y = 0; y < gridData.YSize; y++)
+			for (int y = 0; y < gridData.XSize; y++)
 			for (int x = 0; x < gridData.XSize; x++)
 			{
 				Vector2 cellPos = new Vector2(

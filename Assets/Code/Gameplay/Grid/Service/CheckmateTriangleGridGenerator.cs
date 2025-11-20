@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace Code.Gameplay.Environment
 {
-	public class TriangleGridGenerator : IGridGenerator
-	{
+  public class CheckmateTriangleGridGenerator : IGridGenerator
+  {
     private readonly IGridDataProvider _gridDataProvider;
     private readonly IValidPositionProvider _positionProvider;
 
-    public TriangleGridGenerator(IGridDataProvider gridDataProvider, IValidPositionProvider positionProvider)
+    public CheckmateTriangleGridGenerator(IGridDataProvider gridDataProvider, IValidPositionProvider positionProvider)
     {
       _gridDataProvider = gridDataProvider;
       _positionProvider = positionProvider;
@@ -26,7 +26,6 @@ namespace Code.Gameplay.Environment
       for (int y = 0; y < grid.YSize; y++)
       {
         int cellsInRow = grid.XSize - y * 2;
-
         if (cellsInRow <= 0)
           break;
 
@@ -34,6 +33,9 @@ namespace Code.Gameplay.Environment
 
         for (int x = 0; x < cellsInRow; x++)
         {
+          if ((x + y) % 2 != 0)
+            continue;
+
           Vector2 pos = new Vector2(
             rowStartX + x * grid.CellWidth + grid.CellWidth / 2f,
             startY - y * grid.CellHeight - grid.CellHeight / 2f
