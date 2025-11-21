@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: EnvironmentConfig
   m_EditorClassIdentifier: 
   ViewPrefab: {fileID: 5822898325911631811, guid: ff41f0f80f5503745815b25e098be419, type: 3}
+  BorderThikness: 0.5
+  BorderPadding: 0.5

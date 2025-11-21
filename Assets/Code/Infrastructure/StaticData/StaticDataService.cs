@@ -15,6 +15,7 @@ namespace Code.Infrastructure.StaticData
     private const string EnvironmentConfigPath = "EnvironmentConfig";
     private const string GridConfigPath = "GridConfig";
     private const string BrickConfigPath = "BrickConfig";
+    private const string PaddleConfigPath = "PaddleConfig";
 
     private const string WindowConfigLabel = "WindowConfig";
     private const string MusicConfigLabel = "MusicConfig";
@@ -22,6 +23,7 @@ namespace Code.Infrastructure.StaticData
     private EnvironmentConfig _environment;
     private GridConfig _grid;
     private BrickConfig _brick;
+    private PaddleConfig _paddle;
 
     private Dictionary<WindowId, WindowConfig> _windowById;
     private Dictionary<MusicTypeId, MusicConfig> _musicById;
@@ -36,6 +38,7 @@ namespace Code.Infrastructure.StaticData
       await LoadEnvironment();
       await LoadGrid();
       await LoadBrick();
+      await LoadPaddle();
       await LoadWindows();
       await LoadMusic();
     }
@@ -49,7 +52,10 @@ namespace Code.Infrastructure.StaticData
     public BrickConfig GetBrickConfig() => 
 	    _brick;
 
-    public WindowConfig GetWindowConfig(WindowId id)
+    public PaddleConfig GetPaddleConfig() =>
+	    _paddle;
+
+		public WindowConfig GetWindowConfig(WindowId id)
 		{
 			if (_windowById.TryGetValue(id, out WindowConfig config))
 				return config;
@@ -74,6 +80,8 @@ namespace Code.Infrastructure.StaticData
     private async UniTask LoadBrick() =>
 	    _brick = await _assetProvider.Load<BrickConfig>(BrickConfigPath);
 
+    private async UniTask LoadPaddle() =>
+	    _paddle = await _assetProvider.Load<PaddleConfig>(PaddleConfigPath);
 
 		private async UniTask LoadWindows() =>
 			_windowById = (await _assetProvider.LoadAll<WindowConfig>(WindowConfigLabel))

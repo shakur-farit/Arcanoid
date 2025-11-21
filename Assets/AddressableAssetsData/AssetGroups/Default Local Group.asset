@@ -28,6 +28,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 111b85d9bde7cb348b4b84f36bb38e10
+    m_Address: PaddleConfig
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3cb8f2204ca48554481851589371ffce
     m_Address: EnvironmentConfig
     m_ReadOnly: 0

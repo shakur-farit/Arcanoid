@@ -13,6 +13,7 @@ namespace Code.Infrastructure.StaticData
     EnvironmentConfig GetEnvironmentConfig();
     GridConfig GetGridConfig();
     BrickConfig GetBrickConfig();
+    PaddleConfig GetPaddleConfig();
     WindowConfig GetWindowConfig(WindowId id);
     MusicConfig GetMusicConfig(MusicTypeId id);
 	}

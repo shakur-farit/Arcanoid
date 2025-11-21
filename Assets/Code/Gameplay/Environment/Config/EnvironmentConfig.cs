@@ -6,5 +6,7 @@ namespace Code.Gameplay.Environment
   public class EnvironmentConfig : ScriptableObject
   {
     public GameObject ViewPrefab;
+    public float BorderThikness;
+    public float BorderPadding;
   }
 }

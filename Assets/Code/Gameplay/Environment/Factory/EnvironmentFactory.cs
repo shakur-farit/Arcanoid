@@ -18,7 +18,9 @@ namespace Code.Gameplay.Environment
     {
       EnvironmentConfig config = _staticDataService.GetEnvironmentConfig();
 
-      _instantiator.InstantiatePrefab(config.ViewPrefab);
+      EnvironmentItem item = _instantiator.InstantiatePrefabForComponent<EnvironmentItem>(config.ViewPrefab);
+
+      item.Initialize(config.BorderThikness, config.BorderPadding);
     }
   }
 }
