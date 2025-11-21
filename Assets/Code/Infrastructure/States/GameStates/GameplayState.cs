@@ -10,17 +10,20 @@ namespace Code.Infrastructure.States.GameStates
 		private readonly IWindowService _windowService;
 		private readonly IEnvironmentFactory _environmentFactory;
 		private readonly IPaddleFactory _paddleFactory;
-		private readonly ILevelBuilder _levelBuilder;
+    private readonly IBallFactory _ballFactory;
+    private readonly ILevelBuilder _levelBuilder;
 
     public GameplayState(
 	    IWindowService windowService, 
 	    IEnvironmentFactory environmentFactory, 
 	    IPaddleFactory paddleFactory, 
+	    IBallFactory ballFactory, 
 	    ILevelBuilder levelBuilder)
     {
       _windowService = windowService;
       _environmentFactory = environmentFactory;
       _paddleFactory = paddleFactory;
+      _ballFactory = ballFactory;
       _levelBuilder = levelBuilder;
     }
 
@@ -33,22 +36,27 @@ namespace Code.Infrastructure.States.GameStates
 			CreateLevel();
 
 			CreatePaddle();
-		}
 
-		public void Exit()
+      CreateBall();
+    }
+
+    public void Exit()
 		{
 		}
 
-		private void OpenHudWindow() => 
+    private void OpenHudWindow() => 
 			_windowService.Open(WindowId.Hud);
 
-		private void CreateEnvironment() => 
+    private void CreateEnvironment() => 
 			_environmentFactory.CreateEnvironment();
 
-		private void CreateLevel() => 
+    private void CreateLevel() => 
 			_levelBuilder.CreateLevel();
 
-		private void CreatePaddle() => 
+    private void CreatePaddle() => 
 			_paddleFactory.CreatePaddle();
-	}
+
+    private void CreateBall() => 
+      _ballFactory.CreateBall();
+  }
 }

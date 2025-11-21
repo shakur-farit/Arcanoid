@@ -44,6 +44,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - WindowConfig
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69a6ea5fce61cbb4eacffa1b79236b15
+    m_Address: BallConfig
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d9172b35b490d147917f28c5247e722
     m_Address: Assets/StaticData/Music/MainMenuMusicConfig.asset
     m_ReadOnly: 0

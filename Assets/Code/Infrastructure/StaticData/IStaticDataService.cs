@@ -16,5 +16,6 @@ namespace Code.Infrastructure.StaticData
     PaddleConfig GetPaddleConfig();
     WindowConfig GetWindowConfig(WindowId id);
     MusicConfig GetMusicConfig(MusicTypeId id);
-	}
+    BallConfig GetBallConfig();
+  }
 }

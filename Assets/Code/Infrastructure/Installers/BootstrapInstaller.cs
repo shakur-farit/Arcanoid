@@ -77,6 +77,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IEnvironmentFactory>().To<EnvironmentFactory>().AsSingle();
       Container.Bind<IBrickFactory>().To<BrickFactory>().AsSingle();
       Container.Bind<IPaddleFactory>().To<PaddleFactory>().AsSingle();
+      Container.Bind<IBallFactory>().To<BallFactory>().AsSingle();
 
       Container.Bind<IGridGeneratorFactory>().To<GridGeneratorFactory>().AsSingle();
 
