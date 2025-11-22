@@ -1,8 +1,7 @@
 namespace Code.Gameplay.Environment
 {
-	public interface IBallProvider
+	public interface IBallService
 	{
 		void SetBall(BallItem ball);
-		void RemoveBall();
 	}
 }

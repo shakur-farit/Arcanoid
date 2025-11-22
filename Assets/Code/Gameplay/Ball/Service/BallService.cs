@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace Code.Gameplay.Environment
 {
-	public class BallProvider : IBallProvider
+	public class BallService : IBallService, IRemovable
 	{
 		private BallItem _ball;
 
 		public void SetBall(BallItem ball) => 
 			_ball = ball;
 
-		public void RemoveBall() => 
+		public void Remove() => 
 			Object.Destroy(_ball.gameObject);
 	}
 }

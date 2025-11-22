@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Code.Gameplay.Environment
 {
-	public interface IBrickProvider
+	public interface IBrickService
 	{
 		void RemoveBrick(BrickItem item);
 		void AddBrick(BrickItem item);

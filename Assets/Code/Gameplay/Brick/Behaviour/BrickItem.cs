@@ -7,20 +7,20 @@ namespace Code.Gameplay.Environment
 	{
 		[SerializeField] private Transform _brickTransform;
 
-		private IBrickProvider _brickProvider;
+		private IBrickService _brickService;
 
 		public int ScoreValue { get; private set; }
 
 		[Inject]
-		public void Constructor(IBrickProvider brickProvider) => 
-			_brickProvider = brickProvider;
+		public void Constructor(IBrickService brickService) => 
+			_brickService = brickService;
 
 		public void Initialize(float width, float height, int scoreValue)
 		{
 			_brickTransform.localScale = new Vector2(width, height);
 			ScoreValue = scoreValue;
 
-			_brickProvider.AddBrick(this);
+			_brickService.AddBrick(this);
 		}
 	}
 }

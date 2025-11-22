@@ -40,12 +40,14 @@ namespace Code.Infrastructure.States.GameStates
       CreateBall();
     }
 
-    public void Exit()
-		{
-		}
+    public void Exit() => 
+      CloseHudWindow();
 
     private void OpenHudWindow() => 
 			_windowService.Open(WindowId.Hud);
+
+    private void CloseHudWindow() =>
+      _windowService.Close(WindowId.Hud);
 
     private void CreateEnvironment() => 
 			_environmentFactory.CreateEnvironment();

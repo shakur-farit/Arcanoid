@@ -9,14 +9,14 @@ namespace Code.Gameplay.Environment
 		[SerializeField] private BrickItem _item;
 
 		private IScoreService _scoreService;
-		private IBrickProvider _brickProvider;
+		private IBrickService _brickService;
 		private ILevelCompleter _levelCompleter;
 
 		[Inject]
-		public void Constructor(IScoreService scoreService, IBrickProvider brickProvider, ILevelCompleter levelCompleter)
+		public void Constructor(IScoreService scoreService, IBrickService brickService, ILevelCompleter levelCompleter)
 		{
 			_scoreService = scoreService;
-			_brickProvider = brickProvider;
+			_brickService = brickService;
 			_levelCompleter = levelCompleter;
 		}
 
@@ -35,9 +35,9 @@ namespace Code.Gameplay.Environment
 
 		private void RecalculateBrickCount()
 		{
-			_brickProvider.RemoveBrick(_item);
+			_brickService.RemoveBrick(_item);
 
-			if( _brickProvider.GetBricks().Count <= 0)
+			if( _brickService.GetBricks().Count <= 0)
 				_levelCompleter.CompleteLevel();
 		}
 	}
