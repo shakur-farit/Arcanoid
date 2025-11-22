@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: BrickConfig
   m_EditorClassIdentifier: 
   ViewPrefab: {fileID: 7570367625783284525, guid: 1c6a45e023fa513449787b289e38a391, type: 3}
+  ScoreValue: 100

@@ -15,12 +15,14 @@ namespace Code.Gameplay.Environment
 			_staticDataService = staticDataService;
 		}
 
-		public BrickItem CreateBrick(Vector2 at)
+		public void CreateBrick(Vector2 at, GridData gridData)
 		{
 			BrickConfig config = _staticDataService.GetBrickConfig();
 
-			return _instantiator.InstantiatePrefabForComponent<BrickItem>(
+			BrickItem item = _instantiator.InstantiatePrefabForComponent<BrickItem>(
 				config.ViewPrefab, at, Quaternion.identity, null);
+
+			item.Initialize(gridData.CellWidth, gridData.CellHeight, config.ScoreValue);
 		}
 	}
 }

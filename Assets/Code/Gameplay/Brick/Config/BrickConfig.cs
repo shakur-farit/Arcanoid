@@ -6,5 +6,6 @@ namespace Code.Gameplay.Environment
 	public class BrickConfig : ScriptableObject
 	{
 		public GameObject ViewPrefab;
+		[Range(0, 1000)] public int ScoreValue;
 	}
 }

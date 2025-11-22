@@ -8,6 +8,7 @@ namespace Code.Gameplay.Environment
   public class BorderInitializer : MonoBehaviour
   {
     [SerializeField] private EnvironmentItem _item;
+
     [SerializeField] private Transform _topBorder;
 	  [SerializeField] private Transform _bottomBorder;
     [SerializeField] private Transform _leftBorder;

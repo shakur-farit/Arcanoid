@@ -20,7 +20,6 @@ namespace Code.Infrastructure.States.GameStates
 
     public void Enter()
     {
-	    _windowService.Close(WindowId.Hud);
 			_windowService.Open(WindowId.LevelCompleteWindow);
 
       AudioSource audioSource = _cameraProvider.MainCamera.GetComponent<AudioSource>();

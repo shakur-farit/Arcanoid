@@ -1,4 +1,5 @@
 using Code.Infrastructure.StaticData;
+using TMPro;
 using UnityEngine;
 using Zenject;
 

@@ -70,6 +70,11 @@ namespace Code.Infrastructure.Installers
 			Container.Bind<IValidPositionProvider>().To<ValidPositionProvider>().AsSingle();
 			Container.Bind<IGridDataProvider>().To<GridDataProvider>().AsSingle();
 			Container.Bind<ILevelBuilder>().To<LevelBuilder>().AsSingle();
+			Container.Bind<IScoreService>().To<ScoreService>().AsSingle();
+			Container.Bind<IBrickProvider>().To<BrickProvider>().AsSingle();
+			Container.Bind<IBallProvider>().To<BallProvider>().AsSingle();
+			Container.Bind<ILevelCompleter>().To<LevelCompleter>().AsSingle();
+			Container.Bind<ILevelCleaner>().To<LevelCleaner>().AsSingle();
     }
 
 		public void BindGameplayFactories()

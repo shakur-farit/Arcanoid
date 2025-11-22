@@ -776,7 +776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _restartButton: {fileID: 4482013719490671107}
   _quitButton: {fileID: 3575731056626779482}
-  _scoreText: {fileID: 0}
+  _scoreText: {fileID: 2552672074324038370}
 --- !u!1001 &2346829502988095030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -874,6 +874,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 765c01dab61b1ef4a942c1ea4e7de4b9, type: 3}
+--- !u!114 &2552672074324038370 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 287514893121739988, guid: 765c01dab61b1ef4a942c1ea4e7de4b9, type: 3}
+  m_PrefabInstance: {fileID: 2346829502988095030}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &9138402143803594735 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6792480104121883097, guid: 765c01dab61b1ef4a942c1ea4e7de4b9, type: 3}

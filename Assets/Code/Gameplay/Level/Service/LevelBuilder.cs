@@ -30,8 +30,7 @@ namespace Code.Gameplay.Environment
 
 			foreach (Vector2 validPosition in _positionProvider.GetValidPositions())
 			{
-				BrickItem item = _brickFactory.CreateBrick(validPosition);
-				item.Initialize(gridData.CellWidth, gridData.CellHeight);
+				_brickFactory.CreateBrick(validPosition, gridData);
 			}
 		}
 	}
