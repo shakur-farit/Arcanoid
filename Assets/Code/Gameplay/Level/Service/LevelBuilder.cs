@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Code.Gameplay.Environment
 {
 	public class LevelBuilder : ILevelBuilder
@@ -23,13 +25,26 @@ namespace Code.Gameplay.Environment
 			GenerateBricks();
 		}
 
-		private void GenerateGrid()
-		{
-			IGridGenerator gridGenerator = _generatorFactory.Create(GridTypeId.CheckmateTriangle);
-			gridGenerator.GenerateGrid();
-		}
+    private void GenerateGrid()
+    {
+      IGridGenerator gridGenerator = _generatorFactory.Create(GetRandomGridType());
+      gridGenerator.GenerateGrid();
+    }
 
-		private void CreateEnvironment() => 
+    private GridTypeId GetRandomGridType()
+    {
+      GridTypeId[] types =
+      {
+        GridTypeId.Triangle,
+        GridTypeId.Square,
+        GridTypeId.CheckmateTriangle,
+        GridTypeId.CheckmateSquare
+      };
+
+      return types[Random.Range(0, types.Length)];
+    }
+
+    private void CreateEnvironment() => 
 			_environmentFactory.CreateEnvironment();
 
 		private void GenerateBricks() => 

@@ -25,8 +25,6 @@ namespace Code.Gameplay.Environment
       foreach (BrickItem brick in _bricks)
         DestroyBrick(brick);
 
-			Debug.Log($"{_bricks.Count} / Clean");
-
       _bricks.Clear();
     }
 

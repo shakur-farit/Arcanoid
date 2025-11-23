@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 2d11fa8e624f85d4cafee8a1efda1e10
   m_SerializeEntries:
+  - m_GUID: 068e8f606f9293e49a20050ed129104e
+    m_Address: Assets/StaticData/SoundEffect/CollideSoundEffectConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SoundEffectConfig
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e26789afa50e774386e5cb210e0d11e
     m_Address: Assets/StaticData/Window/GameOverWindowConfig.asset
     m_ReadOnly: 0
@@ -60,6 +66,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - MusicConfig
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b010c526600cfdc48a9dcbbf63fbdcd6
+    m_Address: Assets/StaticData/SoundEffect/BrickBrokeSoundEffectConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SoundEffectConfig
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6a54a15b82a7fa4e8e6c49c0f591dc5
     m_Address: Assets/StaticData/Music/GameplayMusicConfig.asset

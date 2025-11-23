@@ -20,6 +20,7 @@ namespace Code.Infrastructure.StaticData
 
     private const string WindowConfigLabel = "WindowConfig";
     private const string MusicConfigLabel = "MusicConfig";
+    private const string SoundEffectConfigLabel = "SoundEffectConfig";
 
     private EnvironmentConfig _environment;
     private GridConfig _grid;
@@ -29,6 +30,7 @@ namespace Code.Infrastructure.StaticData
 
     private Dictionary<WindowId, WindowConfig> _windowById;
     private Dictionary<MusicTypeId, MusicConfig> _musicById;
+    private Dictionary<SoundEffectTypeId, SoundEffectConfig> _soundEffectById;
 
     private readonly IAssetProvider _assetProvider;
 
@@ -44,6 +46,7 @@ namespace Code.Infrastructure.StaticData
       await LoadBall();
       await LoadWindows();
       await LoadMusic();
+      await LoadSoundEffects();
     }
 
     public EnvironmentConfig GetEnvironmentConfig() => 
@@ -77,6 +80,14 @@ namespace Code.Infrastructure.StaticData
       throw new Exception($"Music config for {id} was not found");
     }
 
+    public SoundEffectConfig GetSoundEffectConfig(SoundEffectTypeId id)
+    {
+      if (_soundEffectById.TryGetValue(id, out SoundEffectConfig config))
+        return config;
+
+      throw new Exception($"Sound effect config for {id} was not found");
+    }
+
     private async UniTask LoadEnvironment() =>
       _environment = await _assetProvider.Load<EnvironmentConfig>(EnvironmentConfigPath);
 
@@ -98,6 +109,10 @@ namespace Code.Infrastructure.StaticData
 
     private async UniTask LoadMusic() =>
       _musicById = (await _assetProvider.LoadAll<MusicConfig>(MusicConfigLabel))
+        .ToDictionary(x => x.TypeId, x => x);
+
+    private async UniTask LoadSoundEffects() =>
+      _soundEffectById = (await _assetProvider.LoadAll<SoundEffectConfig>(SoundEffectConfigLabel))
         .ToDictionary(x => x.TypeId, x => x);
   }
 }

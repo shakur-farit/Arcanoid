@@ -1,4 +1,7 @@
+using System.Collections;
+using Code.Infrastructure.States.GameStates;
 using UnityEngine;
+using Zenject;
 
 namespace Code.Gameplay.Environment
 {
@@ -9,8 +12,17 @@ namespace Code.Gameplay.Environment
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private BallItem _item;
 
-    private void OnCollisionEnter2D(Collision2D _) => 
+    private ISoundEffectFactory _soundEffectFactory;
+
+    [Inject]
+    public void Constructor(ISoundEffectFactory soundEffectFactory) => 
+      _soundEffectFactory = soundEffectFactory;
+
+    private void OnCollisionEnter2D(Collision2D _)
+    {
       AdjustAngle();
+      PlaySoundEffect();
+    }
 
     private void AdjustAngle()
     {
@@ -24,5 +36,8 @@ namespace Code.Gameplay.Environment
 
       _rigidbody2D.velocity = dir.normalized * _item.MovementSpeed;
     }
+
+    private void PlaySoundEffect() => 
+      _soundEffectFactory.CreateSoundEffect(SoundEffectTypeId.Collide);
   }
 }

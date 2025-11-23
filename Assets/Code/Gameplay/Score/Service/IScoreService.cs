@@ -7,5 +7,6 @@ namespace Code.Gameplay.Environment
 		event Action ScoreChanged;
 		int Score { get; }
 		void IncreaseScore(int value);
-	}
+    void RestartScore();
+  }
 }

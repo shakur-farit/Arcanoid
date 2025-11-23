@@ -24,6 +24,7 @@ namespace Code.Infrastructure.States.GameStates
 
       _audioSource.clip = _currentMusicConfig.AudioClip;
       _audioSource.volume = _currentMusicConfig.Volume;
+      _audioSource.loop = _currentMusicConfig.Loop;
 
       _audioSource.Play();
     }

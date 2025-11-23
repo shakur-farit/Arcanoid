@@ -1,14 +1,15 @@
-using System;
+using Code.Gameplay.Environment;
 
 namespace Code.Gameplay.Restart
 {
   public class RestartingService : IRestartingService
   {
-	  public event Action Restarted;
+    private readonly IScoreService _scoreService;
 
-    public void Restart()
-	  {
-      Restarted?.Invoke();
-	  }
+    public RestartingService(IScoreService scoreService) => 
+      _scoreService = scoreService;
+
+    public void Restart() => 
+      _scoreService.RestartScore();
   }
 }

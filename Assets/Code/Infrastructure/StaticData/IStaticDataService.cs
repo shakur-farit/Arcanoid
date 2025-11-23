@@ -14,8 +14,9 @@ namespace Code.Infrastructure.StaticData
     GridConfig GetGridConfig();
     BrickConfig GetBrickConfig();
     PaddleConfig GetPaddleConfig();
+    BallConfig GetBallConfig();
     WindowConfig GetWindowConfig(WindowId id);
     MusicConfig GetMusicConfig(MusicTypeId id);
-    BallConfig GetBallConfig();
+    SoundEffectConfig GetSoundEffectConfig(SoundEffectTypeId id);
   }
 }

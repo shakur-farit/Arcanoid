@@ -8,46 +8,53 @@ using Zenject;
 
 namespace Code.Meta.UI.Windows.Behaviours
 {
-	public class MainMenuWindow : BaseWindow
-	{
-		[SerializeField] private Button _startGameButton;
+  public class MainMenuWindow : BaseWindow
+  {
+    [SerializeField] private Button _startGameButton;
     [SerializeField] private Button _quitButton;
 
     private IGameStateMachine _stateMachine;
-		private IWindowService _windowService;
+    private IWindowService _windowService;
+    private IQuitGameService _quitGame;
 
-		[Inject]
-		public void Constructor(IGameStateMachine stateMachine, IWindowService windowService)
-		{
-			Id = WindowId.MainMenuWindow;
+    [Inject]
+    public void Constructor(
+      IGameStateMachine stateMachine,
+      IWindowService windowService,
+      IQuitGameService quitGame)
+    {
+      Id = WindowId.MainMenuWindow;
 
-			_stateMachine = stateMachine;
-			_windowService = windowService;
-		}
+      _stateMachine = stateMachine;
+      _windowService = windowService;
+      _quitGame = quitGame;
+    }
 
-		protected override void Initialize()
-		{
-			_startGameButton.onClick.AddListener(EnterToBattle);
-			_startGameButton.onClick.AddListener(CloseWindow);
+    protected override void SubscribeUpdates()
+    {
+      _startGameButton.onClick.AddListener(EnterGame);
+      _startGameButton.onClick.AddListener(CloseWindow);
 
       _quitButton.onClick.AddListener(QuitGame);
     }
 
-		private void EnterToBattle() =>
-			_stateMachine.Enter<LoadingGameplaySceneState, string>(Scenes.Gameplay);
+    protected override void UnsubscribeUpdates()
+    {
+      _startGameButton.onClick.RemoveAllListeners();
+      _quitButton.onClick.RemoveAllListeners();
+    }
+
+    private void EnterGame() =>
+      _stateMachine.Enter<LoadingGameplaySceneState, string>(Scenes.Gameplay);
 
     private void QuitGame()
     {
       CloseWindow();
 
-#if UNITY_EDITOR
-      UnityEditor.EditorApplication.isPlaying = false;
-#else
-    Application.Quit();
-#endif
+      _quitGame.QuitGame();
     }
 
     private void CloseWindow() =>
-			_windowService.Close(WindowId.MainMenuWindow);
-	}
+      _windowService.Close(WindowId.MainMenuWindow);
+  }
 }

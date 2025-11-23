@@ -6,6 +6,7 @@ namespace Code.Infrastructure.States.GameStates
   public class MusicConfig : ScriptableObject
   {
     public MusicTypeId TypeId;
+    public bool Loop;
     public AudioClip AudioClip;
     [Range(0f, 1f)] public float Volume;
   }

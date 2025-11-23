@@ -1,4 +1,3 @@
-using System;
 using Code.Gameplay.Camera.Service;
 using UnityEngine;
 using Zenject;

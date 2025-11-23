@@ -59,6 +59,7 @@ namespace Code.Infrastructure.Installers
 			Container.Bind<IAssetProvider>().To<AssetProvider>().AsSingle();
 			Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
 			Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
+			Container.Bind<IQuitGameService>().To<QuitGameService>().AsSingle();
 		}
 
 		public void BindGameplayServices()
@@ -105,9 +106,8 @@ namespace Code.Infrastructure.Installers
     public void BindSoundServices() => 
 			Container.BindInterfacesAndSelfTo<MusicProvider>().AsSingle();
 
-    public void BindSoundFactories()
-    {
-    }
+    public void BindSoundFactories() => 
+      Container.Bind<ISoundEffectFactory>().To<SoundEffectFactory>().AsSingle();
 
     public void Initialize() => 
 			Container.Resolve<IGameStateMachine>().Enter<BootstrapState>();

@@ -1,4 +1,5 @@
 using Code.Common.Extensions;
+using Code.Infrastructure.States.GameStates;
 using UnityEngine;
 using Zenject;
 
@@ -11,14 +12,20 @@ namespace Code.Gameplay.Environment
 		private IScoreService _scoreService;
 		private IBrickService _brickService;
 		private ILevelCompleter _levelCompleter;
+    private ISoundEffectFactory _soundEffectFactory;
 
-		[Inject]
-		public void Constructor(IScoreService scoreService, IBrickService brickService, ILevelCompleter levelCompleter)
+    [Inject]
+		public void Constructor(
+      IScoreService scoreService, 
+      IBrickService brickService, 
+      ISoundEffectFactory soundEffectFactory, 
+      ILevelCompleter levelCompleter)
 		{
 			_scoreService = scoreService;
 			_brickService = brickService;
 			_levelCompleter = levelCompleter;
-		}
+      _soundEffectFactory = soundEffectFactory;
+    }
 
 
 		private void OnCollisionEnter2D(Collision2D other)
@@ -27,6 +34,7 @@ namespace Code.Gameplay.Environment
 			{
 				IncreaseScore();
 				RecalculateBrickCount();
+				PlaySoundEffect();
 			}
 		}
 
@@ -40,5 +48,8 @@ namespace Code.Gameplay.Environment
 			if( _brickService.GetBricks().Count <= 0)
 				_levelCompleter.CompleteLevel();
 		}
-	}
+
+    private void PlaySoundEffect() => 
+      _soundEffectFactory.CreateSoundEffect(SoundEffectTypeId.BrickBroken);
+  }
 }

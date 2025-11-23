@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aadb733c42516644a99921fb59ca83c, type: 3}
-  m_Name: MainMenuMusicConfig
+  m_Script: {fileID: 11500000, guid: a96b9438277581e4297165109cddc3e5, type: 3}
+  m_Name: CollideSoundEffectConfig
   m_EditorClassIdentifier: 
   TypeId: 1
-  Loop: 1
-  AudioClip: {fileID: 8300000, guid: 19232113c342c54468d382c98574f41a, type: 3}
-  Volume: 0.5
+  ViewPrefab: {fileID: 7490962443677775242, guid: 5bd645548c3cf0140ba762605fba6df8, type: 3}
+  AudioClip: {fileID: 8300000, guid: 07018870b1e570b488cf7a8bf973b5af, type: 3}
+  Lifetime: 2000

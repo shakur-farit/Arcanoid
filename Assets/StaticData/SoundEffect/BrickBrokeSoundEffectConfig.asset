@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aadb733c42516644a99921fb59ca83c, type: 3}
-  m_Name: GameplayMusicConfig
+  m_Script: {fileID: 11500000, guid: a96b9438277581e4297165109cddc3e5, type: 3}
+  m_Name: BrickBrokeSoundEffectConfig
   m_EditorClassIdentifier: 
   TypeId: 2
-  Loop: 1
-  AudioClip: {fileID: 8300000, guid: e62aa21f38301ab438ea58474cb4b277, type: 3}
-  Volume: 0.5
+  ViewPrefab: {fileID: 7490962443677775242, guid: 5bd645548c3cf0140ba762605fba6df8, type: 3}
+  AudioClip: {fileID: 8300000, guid: c46b4c3cf2480d142b4ca725720332d9, type: 3}
+  Lifetime: 2000

@@ -17,11 +17,13 @@ namespace Code.Meta.UI.Windows.Behaviours
     private IGameStateMachine _stateMachine;
     private IWindowService _windowService;
     private IRestartingService _restarting;
+    private IQuitGameService _quitGame;
 
     [Inject]
     public void Constructor(
 	    IGameStateMachine stateMachine, 
 	    IWindowService windowService, 
+	    IQuitGameService quitGame, 
 	    IRestartingService restarting)
     {
       Id = WindowId.GameOverWindow;
@@ -29,30 +31,39 @@ namespace Code.Meta.UI.Windows.Behaviours
       _stateMachine = stateMachine;
       _windowService = windowService;
       _restarting = restarting;
+      _quitGame = quitGame;
     }
 
-    protected override void Initialize()
+    protected override void SubscribeUpdates()
     {
-      _restartButton.onClick.AddListener(EnterToBattle);
+      _restartButton.onClick.AddListener(EnterGame);
       _quitButton.onClick.AddListener(QuitGame);
     }
 
-    private void EnterToBattle()
+    protected override void UnsubscribeUpdates()
+    {
+      _restartButton.onClick.RemoveAllListeners();
+      _quitButton.onClick.RemoveAllListeners();
+    }
+
+    private void EnterGame()
     {
       CloseWindow();
-      _restarting.Restart();
-      _stateMachine.Enter<LoadingGameplaySceneState, string>(Scenes.Gameplay);
+      RestartGame();
+      EnterToLoadingGameplaySceneState();
     }
+
+    private void RestartGame() => 
+      _restarting.Restart();
+
+    private void EnterToLoadingGameplaySceneState() => 
+      _stateMachine.Enter<LoadingGameplaySceneState, string>(Scenes.Gameplay);
 
     private void QuitGame()
     {
       CloseWindow();
 
-#if UNITY_EDITOR
-      UnityEditor.EditorApplication.isPlaying = false;
-#else
-    Application.Quit();
-#endif
+      _quitGame.QuitGame();
     }
 
     private void CloseWindow() =>

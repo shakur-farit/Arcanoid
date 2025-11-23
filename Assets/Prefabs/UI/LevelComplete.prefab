@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3540374771810639794}
   - component: {fileID: 4482013719490671107}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RESTART
+  m_text: NEXT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2649710fee943d844bcea62022b1f4cf, type: 2}
   m_sharedMaterial: {fileID: 8120199949304618070, guid: 2649710fee943d844bcea62022b1f4cf, type: 2}
@@ -774,9 +774,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22dd54c45e064b541a520be17c18a0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _restartButton: {fileID: 4482013719490671107}
+  _nextButton: {fileID: 4482013719490671107}
   _quitButton: {fileID: 3575731056626779482}
-  _scoreText: {fileID: 8885370555483214720}
 --- !u!1001 &8697110811462405972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -879,14 +878,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6792480104121883097, guid: 765c01dab61b1ef4a942c1ea4e7de4b9, type: 3}
   m_PrefabInstance: {fileID: 8697110811462405972}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8885370555483214720 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 287514893121739988, guid: 765c01dab61b1ef4a942c1ea4e7de4b9, type: 3}
-  m_PrefabInstance: {fileID: 8697110811462405972}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
