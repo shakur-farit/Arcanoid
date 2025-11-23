@@ -6,18 +6,11 @@ namespace Code.Gameplay.Environment
 	public class LevelCompleter : ILevelCompleter
 	{
 		private readonly IGameStateMachine _stateMachine;
-		private readonly ILevelCleaner _levelCleaner;
 
-		public LevelCompleter(IGameStateMachine stateMachine, ILevelCleaner levelCleaner)
-		{
+		public LevelCompleter(IGameStateMachine stateMachine) => 
 			_stateMachine = stateMachine;
-			_levelCleaner = levelCleaner;
-		}
 
-		public void CompleteLevel()
-		{
-			_levelCleaner.CleanLevel();
+		public void CompleteLevel() => 
 			_stateMachine.Enter<LevelCompleteState>();
-		}
 	}
 }

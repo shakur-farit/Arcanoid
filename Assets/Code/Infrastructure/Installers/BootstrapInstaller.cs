@@ -71,12 +71,14 @@ namespace Code.Infrastructure.Installers
 			Container.Bind<IGridDataProvider>().To<GridDataProvider>().AsSingle();
 			Container.Bind<ILevelBuilder>().To<LevelBuilder>().AsSingle();
 			Container.Bind<IScoreService>().To<ScoreService>().AsSingle();
-			Container.Bind<IBrickService>().To<BrickService>().AsSingle();
+			Container.BindInterfacesAndSelfTo<BrickService>().AsSingle();
 			Container.BindInterfacesAndSelfTo<BallService>().AsSingle();
 			Container.BindInterfacesAndSelfTo<EnvironmentService>().AsSingle();
 			Container.BindInterfacesAndSelfTo<PaddleService>().AsSingle();
 			Container.Bind<ILevelCompleter>().To<LevelCompleter>().AsSingle();
 			Container.Bind<ILevelCleaner>().To<LevelCleaner>().AsSingle();
+			Container.Bind<ILevelActiveObjectGenerator>().To<LevelActiveObjectGenerator>().AsSingle();
+			Container.Bind<IBricksGenerator>().To<BricksGenerator>().AsSingle();
     }
 
 		public void BindGameplayFactories()

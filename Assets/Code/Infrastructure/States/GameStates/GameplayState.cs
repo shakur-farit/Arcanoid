@@ -8,57 +8,55 @@ namespace Code.Infrastructure.States.GameStates
 	public class GameplayState : IState
 	{
 		private readonly IWindowService _windowService;
-		private readonly IEnvironmentFactory _environmentFactory;
-		private readonly IPaddleFactory _paddleFactory;
-    private readonly IBallFactory _ballFactory;
-    private readonly ILevelBuilder _levelBuilder;
+		private readonly ILevelActiveObjectGenerator _levelActiveObjectGenerator;
+		private readonly ILevelBuilder _levelBuilder;
+		private readonly ILevelCleaner _levelCleaner;
+		private readonly IMusicPlayer _musicPlayer;
 
-    public GameplayState(
+		public GameplayState(
 	    IWindowService windowService, 
-	    IEnvironmentFactory environmentFactory, 
-	    IPaddleFactory paddleFactory, 
-	    IBallFactory ballFactory, 
-	    ILevelBuilder levelBuilder)
+	    ILevelActiveObjectGenerator levelActiveObjectGenerator, 
+	    ILevelBuilder levelBuilder,
+	    ILevelCleaner levelCleaner,
+	    IMusicPlayer musicPlayer)
     {
       _windowService = windowService;
-      _environmentFactory = environmentFactory;
-      _paddleFactory = paddleFactory;
-      _ballFactory = ballFactory;
+      _levelActiveObjectGenerator = levelActiveObjectGenerator;
       _levelBuilder = levelBuilder;
+      _levelCleaner = levelCleaner;
+      _musicPlayer = musicPlayer;
     }
 
 		public void Enter()
 		{
 			OpenHudWindow();
-
-			CreateEnvironment();
-
 			CreateLevel();
-
-			CreatePaddle();
-
-      CreateBall();
+			CreateActiveObjects();
+			PlayGameplayMusic();
     }
 
-    public void Exit() => 
-      CloseHudWindow();
+		public void Exit()
+		{
+			CloseHudWindow();
+			CleanLevel();
+		}
 
-    private void OpenHudWindow() => 
+		private void OpenHudWindow() => 
 			_windowService.Open(WindowId.Hud);
 
-    private void CloseHudWindow() =>
+		private void CloseHudWindow() =>
       _windowService.Close(WindowId.Hud);
 
-    private void CreateEnvironment() => 
-			_environmentFactory.CreateEnvironment();
-
-    private void CreateLevel() => 
+		private void CreateLevel() => 
 			_levelBuilder.CreateLevel();
 
-    private void CreatePaddle() => 
-			_paddleFactory.CreatePaddle();
+		private void CreateActiveObjects() => 
+			_levelActiveObjectGenerator.Generate();
 
-    private void CreateBall() => 
-      _ballFactory.CreateBall();
-  }
+		private void PlayGameplayMusic() => 
+			_musicPlayer.PlayMusic(MusicTypeId.GameplayMusic);
+
+		private void CleanLevel() => 
+			_levelCleaner.CleanLevel();
+	}
 }

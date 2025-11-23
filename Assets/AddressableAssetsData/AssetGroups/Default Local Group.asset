@@ -49,6 +49,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94ca8e9c1509c964bafc88963d18fb2f
+    m_Address: Assets/StaticData/Music/GameOverMusicConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MusicConfig
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d9172b35b490d147917f28c5247e722
     m_Address: Assets/StaticData/Music/MainMenuMusicConfig.asset
     m_ReadOnly: 0
@@ -77,6 +83,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - WindowConfig
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e19b2fc238d70cd42af675f86ae6f2b9
+    m_Address: Assets/StaticData/Music/LevelCompleteMusicConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MusicConfig
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 11fc81156d6f2a54291bc94fd1ea19b5, type: 2}

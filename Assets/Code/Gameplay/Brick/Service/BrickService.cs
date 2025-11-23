@@ -5,7 +5,7 @@ namespace Code.Gameplay.Environment
 {
 	public class BrickService : IBrickService, IRemovable
 	{
-		private List<BrickItem> _bricks = new();
+		private readonly List<BrickItem> _bricks = new();
 
 		public List<BrickItem> GetBricks() => 
 			_bricks;
@@ -13,6 +13,7 @@ namespace Code.Gameplay.Environment
 		public void RemoveBrick(BrickItem brick)
 		{
 			_bricks.Remove(brick);
+
 			DestroyBrick(brick);
 		}
 
@@ -23,6 +24,8 @@ namespace Code.Gameplay.Environment
     {
       foreach (BrickItem brick in _bricks)
         DestroyBrick(brick);
+
+			Debug.Log($"{_bricks.Count} / Clean");
 
       _bricks.Clear();
     }

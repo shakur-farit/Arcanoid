@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Code.Infrastructure.States.GameStates
 {
-  public class MusicProvider : IAudioSourceSetter, IMusicClipSetter
+  public class MusicProvider : IAudioSourceSetter, IMusicPlayer
   {
     private AudioSource _audioSource;
     private MusicConfig _currentMusicConfig;
@@ -16,12 +16,15 @@ namespace Code.Infrastructure.States.GameStates
     public void SetAudioSource(AudioSource audioSource) =>
       _audioSource = audioSource;
 
-    public void SetClip(MusicTypeId typeId)
+    public void PlayMusic(MusicTypeId typeId)
     {
+      _audioSource.Stop();
+
       _currentMusicConfig = _staticDataService.GetMusicConfig(typeId);
 
       _audioSource.clip = _currentMusicConfig.AudioClip;
       _audioSource.volume = _currentMusicConfig.Volume;
+
       _audioSource.Play();
     }
   }

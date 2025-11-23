@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 2d11fa8e624f85d4cafee8a1efda1e10
   m_currentHash:
     serializedVersion: 2
-    Hash: 4e08cdcd900a12c377ca522c2f637301
+    Hash: de52ba26238e04decffa505fbee4506e
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -89,8 +89,6 @@ MonoBehaviour:
     - default
     - WindowConfig
     - LevelConfig
-    - HeroConfig
-    - EnemyConfig
     - LootConfig
     - SoundEffectConfig
     - MusicConfig

@@ -7,12 +7,12 @@ namespace Code.Infrastructure.States.GameStates
 	public class HomeScreenState : IState
 	{
 		private readonly IWindowService _windowService;
-    private readonly IMusicClipSetter _musicClipSetter;
+    private readonly IMusicPlayer _musicPlayer;
 
-    public HomeScreenState(IWindowService windowService, IMusicClipSetter musicClipSetter)
+    public HomeScreenState(IWindowService windowService, IMusicPlayer musicPlayer)
     {
       _windowService = windowService;
-      _musicClipSetter = musicClipSetter;
+      _musicPlayer = musicPlayer;
     }
 
     public void Enter()
@@ -30,6 +30,6 @@ namespace Code.Infrastructure.States.GameStates
       _windowService.Open(WindowId.MainMenuWindow);
 
     private void PlayMainMenuMusic() => 
-      _musicClipSetter.SetClip(MusicTypeId.MainMenuMusic);
+      _musicPlayer.PlayMusic(MusicTypeId.MainMenuMusic);
   }
 }
