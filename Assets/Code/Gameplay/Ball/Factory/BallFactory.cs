@@ -1,5 +1,4 @@
 using Code.Infrastructure.StaticData;
-using TMPro;
 using UnityEngine;
 using Zenject;
 
@@ -9,11 +8,16 @@ namespace Code.Gameplay.Environment
   {
     private readonly IInstantiator _instantiator;
     private readonly IStaticDataService _staticDataService;
+    private readonly IBallMovementSpeedService _movementSpeed;
 
-    public BallFactory(IInstantiator instantiator, IStaticDataService staticDataService)
+    public BallFactory(
+	    IInstantiator instantiator, 
+	    IStaticDataService staticDataService,
+	    IBallMovementSpeedService movementSpeed)
     {
       _instantiator = instantiator;
       _staticDataService = staticDataService;
+      _movementSpeed = movementSpeed;
     }
 
     public void CreateBall()
@@ -23,7 +27,10 @@ namespace Code.Gameplay.Environment
       BallItem item = _instantiator.InstantiatePrefabForComponent<BallItem>(
         config.ViewPrefab, config.StartPosition, Quaternion.identity, null);
 
-      item.Initialize(config.MovementSpeed, config.StartDirection);
+      item.Initialize(GetMovementSpeed(config), config.StartDirection);
     }
+
+    private float GetMovementSpeed(BallConfig config) => 
+	    _movementSpeed.GetMovementSpeed(config.MovementSpeed);
   }
 }

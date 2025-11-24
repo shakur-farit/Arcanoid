@@ -12,6 +12,7 @@ namespace Code.Infrastructure.StaticData
 {
 	public class StaticDataService : IStaticDataService
 	{
+    private const string LevelConfigPath = "LevelConfig";
     private const string EnvironmentConfigPath = "EnvironmentConfig";
     private const string GridConfigPath = "GridConfig";
     private const string BrickConfigPath = "BrickConfig";
@@ -22,6 +23,7 @@ namespace Code.Infrastructure.StaticData
     private const string MusicConfigLabel = "MusicConfig";
     private const string SoundEffectConfigLabel = "SoundEffectConfig";
 
+    private LevelConfig _level;
     private EnvironmentConfig _environment;
     private GridConfig _grid;
     private BrickConfig _brick;
@@ -39,6 +41,7 @@ namespace Code.Infrastructure.StaticData
 
 		public async UniTask LoadAll()
 		{
+      await LoadLevel();
       await LoadEnvironment();
       await LoadGrid();
       await LoadBrick();
@@ -49,7 +52,10 @@ namespace Code.Infrastructure.StaticData
       await LoadSoundEffects();
     }
 
-    public EnvironmentConfig GetEnvironmentConfig() => 
+		public LevelConfig GetLevelConfig() => 
+			_level;
+
+		public EnvironmentConfig GetEnvironmentConfig() => 
       _environment;
 
     public GridConfig GetGridConfig() =>
@@ -87,6 +93,9 @@ namespace Code.Infrastructure.StaticData
 
       throw new Exception($"Sound effect config for {id} was not found");
     }
+
+    private async UniTask LoadLevel() => 
+	    _level = await _assetProvider.Load<LevelConfig>(LevelConfigPath);
 
     private async UniTask LoadEnvironment() =>
       _environment = await _assetProvider.Load<EnvironmentConfig>(EnvironmentConfigPath);

@@ -79,7 +79,9 @@ namespace Code.Infrastructure.Installers
 			Container.Bind<ILevelCompleter>().To<LevelCompleter>().AsSingle();
 			Container.Bind<ILevelCleaner>().To<LevelCleaner>().AsSingle();
 			Container.Bind<ILevelActiveObjectGenerator>().To<LevelActiveObjectGenerator>().AsSingle();
+			Container.Bind<ILevelProgressService>().To<LevelProgressService>().AsSingle();
 			Container.Bind<IBricksGenerator>().To<BricksGenerator>().AsSingle();
+			Container.Bind<IBallMovementSpeedService>().To<BallMovementSpeedService>().AsSingle();
     }
 
 		public void BindGameplayFactories()

@@ -15,7 +15,7 @@ namespace Code.Gameplay.Environment
 			ScoreChanged?.Invoke();
 		}
 
-    public void RestartScore() => 
+    public void ResetScore() => 
 			Score = 0;
 	}
 }

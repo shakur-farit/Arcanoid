@@ -10,13 +10,14 @@ namespace Code.Infrastructure.StaticData
 	{
 		UniTask LoadAll();
 
-    EnvironmentConfig GetEnvironmentConfig();
-    GridConfig GetGridConfig();
+		LevelConfig GetLevelConfig();
+		EnvironmentConfig GetEnvironmentConfig();
+		GridConfig GetGridConfig();
     BrickConfig GetBrickConfig();
     PaddleConfig GetPaddleConfig();
     BallConfig GetBallConfig();
     WindowConfig GetWindowConfig(WindowId id);
     MusicConfig GetMusicConfig(MusicTypeId id);
     SoundEffectConfig GetSoundEffectConfig(SoundEffectTypeId id);
-  }
+	}
 }
