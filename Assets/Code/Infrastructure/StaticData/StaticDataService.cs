@@ -22,6 +22,7 @@ namespace Code.Infrastructure.StaticData
     private const string WindowConfigLabel = "WindowConfig";
     private const string MusicConfigLabel = "MusicConfig";
     private const string SoundEffectConfigLabel = "SoundEffectConfig";
+    private const string LootConfigLabel = "LootConfig";
 
     private LevelConfig _level;
     private EnvironmentConfig _environment;
@@ -33,6 +34,8 @@ namespace Code.Infrastructure.StaticData
     private Dictionary<WindowId, WindowConfig> _windowById;
     private Dictionary<MusicTypeId, MusicConfig> _musicById;
     private Dictionary<SoundEffectTypeId, SoundEffectConfig> _soundEffectById;
+    private Dictionary<LootTypeId, LootConfig> _lootById;
+
 
     private readonly IAssetProvider _assetProvider;
 
@@ -50,6 +53,7 @@ namespace Code.Infrastructure.StaticData
       await LoadWindows();
       await LoadMusic();
       await LoadSoundEffects();
+      await LoadLoots();
     }
 
 		public LevelConfig GetLevelConfig() => 
@@ -94,6 +98,14 @@ namespace Code.Infrastructure.StaticData
       throw new Exception($"Sound effect config for {id} was not found");
     }
 
+    public LootConfig GetLootConfig(LootTypeId id)
+    {
+      if (_lootById.TryGetValue(id, out LootConfig config))
+        return config;
+
+      throw new Exception($"Loot config for {id} was not found");
+    }
+
     private async UniTask LoadLevel() => 
 	    _level = await _assetProvider.Load<LevelConfig>(LevelConfigPath);
 
@@ -122,6 +134,10 @@ namespace Code.Infrastructure.StaticData
 
     private async UniTask LoadSoundEffects() =>
       _soundEffectById = (await _assetProvider.LoadAll<SoundEffectConfig>(SoundEffectConfigLabel))
+        .ToDictionary(x => x.TypeId, x => x);
+
+    private async UniTask LoadLoots() =>
+      _lootById = (await _assetProvider.LoadAll<LootConfig>(LootConfigLabel))
         .ToDictionary(x => x.TypeId, x => x);
   }
 }

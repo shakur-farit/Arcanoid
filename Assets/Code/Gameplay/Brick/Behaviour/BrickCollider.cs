@@ -1,5 +1,4 @@
 using Code.Common.Extensions;
-using Code.Infrastructure.States.GameStates;
 using UnityEngine;
 using Zenject;
 
@@ -8,23 +7,18 @@ namespace Code.Gameplay.Environment
 	public class BrickCollider : MonoBehaviour
 	{
 		[SerializeField] private BrickItem _item;
+		[SerializeField] private BrickSoundEffectPlayer _soundEffectPlayer;
+		[SerializeField] private BrickLootDropper _lootDropper;
+		[SerializeField] private ScoreIncreaser _scoreIncreaser;
 
-		private IScoreService _scoreService;
 		private IBrickService _brickService;
 		private ILevelCompleter _levelCompleter;
-    private ISoundEffectFactory _soundEffectFactory;
 
     [Inject]
-		public void Constructor(
-      IScoreService scoreService, 
-      IBrickService brickService, 
-      ISoundEffectFactory soundEffectFactory, 
-      ILevelCompleter levelCompleter)
+		public void Constructor(IBrickService brickService, ILevelCompleter levelCompleter)
 		{
-			_scoreService = scoreService;
 			_brickService = brickService;
 			_levelCompleter = levelCompleter;
-      _soundEffectFactory = soundEffectFactory;
     }
 
 
@@ -35,13 +29,14 @@ namespace Code.Gameplay.Environment
 				IncreaseScore();
 				RecalculateBrickCount();
 				PlaySoundEffect();
+				DropLoot();
 			}
 		}
 
-		private void IncreaseScore() => 
-			_scoreService.IncreaseScore(_item.ScoreValue);
+    private void IncreaseScore() => 
+			_scoreIncreaser.IncreaseScore(_item.ScoreValue);
 
-		private void RecalculateBrickCount()
+    private void RecalculateBrickCount()
 		{
 			_brickService.RemoveBrick(_item);
 
@@ -50,6 +45,9 @@ namespace Code.Gameplay.Environment
 		}
 
     private void PlaySoundEffect() => 
-      _soundEffectFactory.CreateSoundEffect(SoundEffectTypeId.BrickBroken);
+      _soundEffectPlayer.PlaySoundEffect();
+
+    private void DropLoot() => 
+			_lootDropper.DropLoot(_item.ExcludedLoot, transform.position);
   }
 }

@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - SoundEffectConfig
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c403c8669e8f294aa71b28c879a77b0
+    m_Address: Assets/StaticData/Loot/ExtraBallLootConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LootConfig
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e26789afa50e774386e5cb210e0d11e
     m_Address: Assets/StaticData/Window/GameOverWindowConfig.asset
     m_ReadOnly: 0

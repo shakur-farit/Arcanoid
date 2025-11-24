@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Code.Gameplay.Environment
@@ -7,5 +8,7 @@ namespace Code.Gameplay.Environment
 	{
 		public GameObject ViewPrefab;
 		[Range(0, 1000)] public int ScoreValue;
-	}
+    public IEnumerable<LootTypeId> ExcludedLoot;
+
+  }
 }

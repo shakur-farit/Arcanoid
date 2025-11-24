@@ -22,7 +22,7 @@ namespace Code.Gameplay.Environment
 			BrickItem item = _instantiator.InstantiatePrefabForComponent<BrickItem>(
 				config.ViewPrefab, at, Quaternion.identity, null);
 
-			item.Initialize(gridData.CellWidth, gridData.CellHeight, config.ScoreValue);
+			item.Initialize(gridData.CellWidth, gridData.CellHeight, config.ScoreValue, config.ExcludedLoot);
 		}
 	}
 }

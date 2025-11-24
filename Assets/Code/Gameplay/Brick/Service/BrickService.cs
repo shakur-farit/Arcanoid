@@ -28,7 +28,7 @@ namespace Code.Gameplay.Environment
       _bricks.Clear();
     }
 
-    public void DestroyBrick(BrickItem brick) => 
+    private void DestroyBrick(BrickItem brick) => 
       Object.Destroy(brick.gameObject);
   }
 }

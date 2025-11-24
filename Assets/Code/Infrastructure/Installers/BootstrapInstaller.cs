@@ -82,6 +82,10 @@ namespace Code.Infrastructure.Installers
 			Container.Bind<ILevelProgressService>().To<LevelProgressService>().AsSingle();
 			Container.Bind<IBricksGenerator>().To<BricksGenerator>().AsSingle();
 			Container.Bind<IBallMovementSpeedService>().To<BallMovementSpeedService>().AsSingle();
+			Container.Bind<ILootEffectService>().To<LootEffectService>().AsSingle();
+      Container.BindInterfacesAndSelfTo<LootService>().AsSingle();
+      Container.Bind<ILootDropService>().To<LootDropService>().AsSingle();
+      Container.Bind<ILootEffect>().To<ExtraBallEffect>().AsSingle();
     }
 
 		public void BindGameplayFactories()
@@ -90,6 +94,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IBrickFactory>().To<BrickFactory>().AsSingle();
       Container.Bind<IPaddleFactory>().To<PaddleFactory>().AsSingle();
       Container.Bind<IBallFactory>().To<BallFactory>().AsSingle();
+      Container.Bind<ILootFactory>().To<LootFactory>().AsSingle();
 
       Container.Bind<IGridGeneratorFactory>().To<GridGeneratorFactory>().AsSingle();
 
