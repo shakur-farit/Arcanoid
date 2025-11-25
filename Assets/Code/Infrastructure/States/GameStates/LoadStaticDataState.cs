@@ -32,6 +32,6 @@ namespace Code.Infrastructure.States.GameStates
       await _staticDataService.LoadAll();
 
     private void EnterToLoadingHomeScreenSceneState() => 
-      _gameStateMachine.Enter<LoadingHomeScreenSceneState>();
+      _gameStateMachine.Enter<ObjectPoolWarmupState>();
   }
 }

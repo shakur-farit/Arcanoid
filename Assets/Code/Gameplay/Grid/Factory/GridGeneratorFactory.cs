@@ -1,6 +1,7 @@
+using Code.Gameplay.Grid.Service;
 using Zenject;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Grid.Factory
 {
 	public class GridGeneratorFactory : IGridGeneratorFactory
 	{

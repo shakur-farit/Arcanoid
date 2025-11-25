@@ -7,9 +7,14 @@ namespace Code.Infrastructure.States.GameStates
     [SerializeField] private SoundEffectPlayer _player;
     [SerializeField] private SoundEffectDestructor _destructor;
 
-    public async void Initialize(AudioClip audioClip, int lifetime)
+    public GameObject ViewPrefab { get; private set; }
+
+    public async void Initialize(GameObject viewPrefab, AudioClip audioClip, int lifetime)
     {
+      ViewPrefab = viewPrefab;
+
       _player.PlaySoundEffect(audioClip);
+      
       await _destructor.Destruct(lifetime);
     }
   }

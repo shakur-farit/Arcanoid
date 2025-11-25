@@ -1,16 +1,19 @@
+using Code.Gameplay.Environment.Behaviour;
+using Code.Gameplay.Environment.Config;
+using Code.Gameplay.ObjectPool.Service;
 using Code.Infrastructure.StaticData;
-using Zenject;
+using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Environment.Factory
 {
   public class EnvironmentFactory : IEnvironmentFactory
   {
-    private readonly IInstantiator _instantiator;
+    private readonly IObjectPoolService _objectPool;
     private readonly IStaticDataService _staticDataService;
 
-    public EnvironmentFactory(IInstantiator instantiator, IStaticDataService staticDataService)
+    public EnvironmentFactory(IObjectPoolService objectPool, IStaticDataService staticDataService)
     {
-      _instantiator = instantiator;
+      _objectPool = objectPool;
       _staticDataService = staticDataService;
     }
 
@@ -18,9 +21,9 @@ namespace Code.Gameplay.Environment
     {
       EnvironmentConfig config = _staticDataService.GetEnvironmentConfig();
 
-      EnvironmentItem item = _instantiator.InstantiatePrefabForComponent<EnvironmentItem>(config.ViewPrefab);
+      EnvironmentItem item = _objectPool.Get<EnvironmentItem>(config.ViewPrefab, Vector3.zero);
 
-      item.Initialize(config.BorderThikness, config.BorderPadding);
+      item.Initialize(config.ViewPrefab, config.BorderThikness, config.BorderPadding);
     }
   }
 }

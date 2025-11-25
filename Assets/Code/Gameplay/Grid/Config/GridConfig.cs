@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Grid.Config
 {
   [CreateAssetMenu(menuName = "Arcanoid/Grid Config", fileName = "GridConfig")]
   public class GridConfig : ScriptableObject

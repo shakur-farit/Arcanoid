@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Loot.Service
 {
   public interface ILootDropService
   {

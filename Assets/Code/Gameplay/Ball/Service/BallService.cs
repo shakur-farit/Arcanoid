@@ -1,13 +1,20 @@
 using System.Collections.Generic;
-using UnityEngine;
+using Code.Gameplay.Ball.Behaviour;
+using Code.Gameplay.Level.Service;
+using Code.Gameplay.ObjectPool.Service;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Ball.Service
 {
 	public class BallService : IBallService, ICleanable
 	{
-		private readonly List<BallItem> _balls = new();
+    private readonly List<BallItem> _balls = new();
 
-		public void SetBall(BallItem ball) => 
+    private readonly IObjectPoolService _objectPool;
+
+    public BallService(IObjectPoolService objectPool) => 
+			_objectPool = objectPool;
+
+    public void SetBall(BallItem ball) => 
 			_balls.Add(ball);
 
 		public List<BallItem> GetBalls() => 
@@ -29,6 +36,6 @@ namespace Code.Gameplay.Environment
 		}
 
 		private void Destroy(BallItem ball) => 
-			Object.Destroy(ball.gameObject);
+			_objectPool.Return(ball.ViewPrefab, ball.gameObject);
 	}
 }

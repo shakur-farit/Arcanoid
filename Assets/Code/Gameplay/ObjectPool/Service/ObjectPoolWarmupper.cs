@@ -1,6 +1,7 @@
+using Code.Gameplay.ObjectPool.Config;
 using Code.Infrastructure.StaticData;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.ObjectPool.Service
 {
 	public class ObjectPoolWarmupper : IObjectPoolWarmupper
 	{

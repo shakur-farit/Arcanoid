@@ -1,9 +1,9 @@
-using Code.Gameplay.Environment;
+using Code.Gameplay.Score.Service;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Meta.UI.Windows.Behaviours
+namespace Code.Gameplay.Score.Behaviour
 {
 	public class ScoreTextUpdater : MonoBehaviour
 	{

@@ -66,6 +66,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 789317346f4ec2d488d8f38436b09c4b
+    m_Address: ObjectPoolConfig
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94ca8e9c1509c964bafc88963d18fb2f
     m_Address: Assets/StaticData/Music/GameOverMusicConfig.asset
     m_ReadOnly: 0

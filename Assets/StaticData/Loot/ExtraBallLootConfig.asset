@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypeId: 1
   ViewPrefab: {fileID: 7078486679892670214, guid: 6065a645e5b83aa4d9f9184f5b548f7d, type: 3}
-  DropChance: 50
-  DropWeight: 10
+  DropChance: 10
+  DropWeight: 50

@@ -1,4 +1,6 @@
-namespace Code.Gameplay.Environment
+using Code.Gameplay.Grid.Service;
+
+namespace Code.Gameplay.Grid.Factory
 {
 	public interface IGridGeneratorFactory
 	{

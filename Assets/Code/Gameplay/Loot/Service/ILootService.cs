@@ -1,4 +1,6 @@
-namespace Code.Gameplay.Environment
+using Code.Gameplay.Loot.Behaviour;
+
+namespace Code.Gameplay.Loot.Service
 {
   public interface ILootService
   {

@@ -1,4 +1,7 @@
-namespace Code.Gameplay.Environment
+using Code.Gameplay.Ball.Factory;
+using Code.Gameplay.Paddle.Factory;
+
+namespace Code.Gameplay.Level.Service
 {
 	public class LevelActiveObjectGenerator : ILevelActiveObjectGenerator
 	{

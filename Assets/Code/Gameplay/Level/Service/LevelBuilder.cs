@@ -1,6 +1,11 @@
+using Code.Gameplay.Brick.Service;
+using Code.Gameplay.Environment.Factory;
+using Code.Gameplay.Grid;
+using Code.Gameplay.Grid.Factory;
+using Code.Gameplay.Grid.Service;
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Level.Service
 {
 	public class LevelBuilder : ILevelBuilder
 	{

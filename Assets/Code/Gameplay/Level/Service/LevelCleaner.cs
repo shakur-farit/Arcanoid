@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Level.Service
 {
 	public class LevelCleaner : ILevelCleaner
 	{

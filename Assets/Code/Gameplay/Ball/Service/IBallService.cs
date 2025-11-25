@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using Code.Gameplay.Ball.Behaviour;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Ball.Service
 {
 	public interface IBallService
 	{

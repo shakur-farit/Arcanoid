@@ -1,8 +1,23 @@
+using Code.Gameplay.Ball.Factory;
+using Code.Gameplay.Ball.Service;
+using Code.Gameplay.Brick.Factory;
+using Code.Gameplay.Brick.Service;
 using Code.Gameplay.Camera.Service;
 using Code.Gameplay.Death;
-using Code.Gameplay.Environment;
+using Code.Gameplay.Environment.Factory;
+using Code.Gameplay.Environment.Service;
+using Code.Gameplay.Grid.Factory;
+using Code.Gameplay.Grid.Service;
 using Code.Gameplay.Input;
+using Code.Gameplay.Level.Service;
+using Code.Gameplay.Loot.Config;
+using Code.Gameplay.Loot.Factory;
+using Code.Gameplay.Loot.Service;
+using Code.Gameplay.ObjectPool.Service;
+using Code.Gameplay.Paddle.Factory;
+using Code.Gameplay.Paddle.Service;
 using Code.Gameplay.Restart;
+using Code.Gameplay.Score.Service;
 using Code.Infrastructure.AssetsProvider;
 using Code.Infrastructure.Loading;
 using Code.Infrastructure.States.Factory;
@@ -12,6 +27,7 @@ using Code.Infrastructure.StaticData;
 using Code.Meta.UI.Windows.Factory;
 using Code.Meta.UI.Windows.Service;
 using Zenject;
+using ILootFactory = Code.Gameplay.Loot.Factory.ILootFactory;
 
 namespace Code.Infrastructure.Installers
 {
@@ -44,9 +60,9 @@ namespace Code.Infrastructure.Installers
 		private void BindGameStates()
 		{
 			Container.BindInterfacesAndSelfTo<BootstrapState>().AsSingle();
-			Container.BindInterfacesAndSelfTo<ObjectPoolWarmupState>().AsSingle();
-			Container.BindInterfacesAndSelfTo<LoadStaticDataState>().AsSingle();
-			Container.BindInterfacesAndSelfTo<LoadingHomeScreenSceneState>().AsSingle();
+      Container.BindInterfacesAndSelfTo<LoadStaticDataState>().AsSingle();
+      Container.BindInterfacesAndSelfTo<ObjectPoolWarmupState>().AsSingle();
+      Container.BindInterfacesAndSelfTo<LoadingHomeScreenSceneState>().AsSingle();
 			Container.BindInterfacesAndSelfTo<HomeScreenState>().AsSingle();
 			Container.BindInterfacesAndSelfTo<LoadingGameplaySceneState>().AsSingle();
 			Container.BindInterfacesAndSelfTo<GameplayState>().AsSingle();

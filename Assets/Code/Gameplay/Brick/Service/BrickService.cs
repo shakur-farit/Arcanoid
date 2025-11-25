@@ -1,13 +1,19 @@
 using System.Collections.Generic;
-using UnityEngine;
+using Code.Gameplay.Brick.Behaviour;
+using Code.Gameplay.Level.Service;
+using Code.Gameplay.ObjectPool.Service;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Brick.Service
 {
 	public class BrickService : IBrickService, ICleanable
 	{
-		private readonly List<BrickItem> _bricks = new();
+    private readonly IObjectPoolService _objectPool;
+    private readonly List<BrickItem> _bricks = new();
 
-		public List<BrickItem> GetBricks() => 
+    public BrickService(IObjectPoolService objectPool) => 
+      _objectPool = objectPool;
+
+    public List<BrickItem> GetBricks() => 
 			_bricks;
 
 		public void RemoveBrick(BrickItem brick)
@@ -26,11 +32,9 @@ namespace Code.Gameplay.Environment
         DestroyBrick(brick);
 
       _bricks.Clear();
-
-			Debug.Log("CleaerBrciks");
     }
 
     private void DestroyBrick(BrickItem brick) => 
-      Object.Destroy(brick.gameObject);
+      _objectPool.Return(brick.ViewPrefab, brick.gameObject);
   }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Ball.Config
 {
   [CreateAssetMenu(menuName = "Arcanoid/Ball Config", fileName = "BallConfig")]
   public class BallConfig : ScriptableObject

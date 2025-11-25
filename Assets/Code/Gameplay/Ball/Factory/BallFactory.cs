@@ -1,21 +1,23 @@
+using Code.Gameplay.Ball.Behaviour;
+using Code.Gameplay.Ball.Config;
+using Code.Gameplay.Ball.Service;
+using Code.Gameplay.ObjectPool.Service;
 using Code.Infrastructure.StaticData;
-using UnityEngine;
-using Zenject;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Ball.Factory
 {
   public class BallFactory : IBallFactory
   {
-    private readonly IInstantiator _instantiator;
+    private readonly IObjectPoolService _objectPool;
     private readonly IStaticDataService _staticDataService;
     private readonly IBallMovementSpeedService _movementSpeed;
 
     public BallFactory(
-	    IInstantiator instantiator, 
+	    IObjectPoolService objectPool, 
 	    IStaticDataService staticDataService,
 	    IBallMovementSpeedService movementSpeed)
     {
-      _instantiator = instantiator;
+      _objectPool = objectPool;
       _staticDataService = staticDataService;
       _movementSpeed = movementSpeed;
     }
@@ -24,10 +26,9 @@ namespace Code.Gameplay.Environment
     {
       BallConfig config = _staticDataService.GetBallConfig();
 
-      BallItem item = _instantiator.InstantiatePrefabForComponent<BallItem>(
-        config.ViewPrefab, config.StartPosition, Quaternion.identity, null);
+      BallItem item = _objectPool.Get<BallItem>(config.ViewPrefab, config.StartPosition);
 
-      item.Initialize(GetMovementSpeed(config), config.StartDirection);
+      item.Initialize(config.ViewPrefab, GetMovementSpeed(config), config.StartDirection);
     }
 
     private float GetMovementSpeed(BallConfig config) => 

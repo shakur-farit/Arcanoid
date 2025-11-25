@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ViewPrefab: {fileID: 7490962443677775242, guid: 690f26908b2ca5b449a60d9029757a8b, type: 3}
   StartPosition: {x: 0, y: -3}
-  MovementSpeed: 5
+  MovementSpeed: 8

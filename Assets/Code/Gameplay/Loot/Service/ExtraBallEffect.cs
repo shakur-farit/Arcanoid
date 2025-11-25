@@ -1,7 +1,6 @@
-using System;
-using UnityEngine;
+using Code.Gameplay.Ball.Factory;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Loot.Service
 {
   public class ExtraBallEffect : ILootEffect
   {

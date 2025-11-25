@@ -1,4 +1,4 @@
-using Code.Gameplay.Environment;
+using Code.Gameplay.ObjectPool.Service;
 using Code.Infrastructure.States.Infrastructure;
 using Code.Infrastructure.States.StateMachine;
 
@@ -30,6 +30,6 @@ namespace Code.Infrastructure.States.GameStates
 			_objectPoolWarmUpper.WarmupObjects();
 
 		private void EnterLoadingHomeScreenState() =>
-			_stateMachine.Enter<LoadStaticDataState>();
+			_stateMachine.Enter<LoadingHomeScreenSceneState>();
 	}
 }

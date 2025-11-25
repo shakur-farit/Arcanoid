@@ -1,4 +1,4 @@
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Ball.Factory
 {
   public interface IBallFactory
   {

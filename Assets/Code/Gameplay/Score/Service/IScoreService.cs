@@ -1,6 +1,6 @@
 using System;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Score.Service
 {
 	public interface IScoreService
 	{

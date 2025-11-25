@@ -1,6 +1,8 @@
+using Code.Gameplay.Ball.Service;
+using Code.Gameplay.Level.Config;
 using Code.Infrastructure.StaticData;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Level.Service
 {
 	public class LevelProgressService : ILevelProgressService
 	{

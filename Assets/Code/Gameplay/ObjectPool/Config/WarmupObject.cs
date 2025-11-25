@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.ObjectPool.Config
 {
 	[Serializable]
 	public class WarmupObject

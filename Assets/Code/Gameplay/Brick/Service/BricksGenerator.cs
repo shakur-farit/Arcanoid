@@ -1,6 +1,8 @@
+using Code.Gameplay.Brick.Factory;
+using Code.Gameplay.Grid.Service;
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Brick.Service
 {
 	public class BricksGenerator : IBricksGenerator
 	{

@@ -1,12 +1,22 @@
 using System.Threading;
+using Code.Gameplay.ObjectPool.Service;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using Zenject;
 
 namespace Code.Infrastructure.States.GameStates
 {
   public class SoundEffectDestructor : MonoBehaviour
   {
+    [SerializeField] private SoundEffectItem _item;
+
     private CancellationTokenSource _cts;
+
+    private IObjectPoolService _objectPool;
+
+    [Inject]
+    public void Constructor(IObjectPoolService objectPool) => 
+      _objectPool = objectPool;
 
     private void OnDestroy() => 
       _cts?.Cancel();
@@ -24,7 +34,7 @@ namespace Code.Infrastructure.States.GameStates
         return;
       }
 
-      Destroy(gameObject);
+      _objectPool.Return(_item.ViewPrefab, gameObject);
     }
   }
 }

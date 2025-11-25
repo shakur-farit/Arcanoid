@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Loot.Service
 {
   public class LootEffectService : ILootEffectService
   {

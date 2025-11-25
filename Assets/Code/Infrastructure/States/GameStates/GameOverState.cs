@@ -1,4 +1,3 @@
-using Code.Gameplay.Environment;
 using Code.Infrastructure.States.Infrastructure;
 using Code.Meta.UI.Windows;
 using Code.Meta.UI.Windows.Service;

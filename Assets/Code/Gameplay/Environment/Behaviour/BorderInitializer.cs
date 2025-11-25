@@ -2,7 +2,7 @@ using Code.Gameplay.Camera.Service;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Environment.Behaviour
 {
   public class BorderInitializer : MonoBehaviour
   {

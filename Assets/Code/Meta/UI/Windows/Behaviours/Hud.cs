@@ -1,4 +1,4 @@
-using Code.Gameplay.Environment;
+using Code.Gameplay.Score.Service;
 using Zenject;
 
 namespace Code.Meta.UI.Windows.Behaviours

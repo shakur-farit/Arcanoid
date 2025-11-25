@@ -1,16 +1,17 @@
+using Code.Gameplay.ObjectPool.Service;
 using Code.Infrastructure.StaticData;
-using Zenject;
+using UnityEngine;
 
 namespace Code.Infrastructure.States.GameStates
 {
   public class SoundEffectFactory : ISoundEffectFactory
   {
-    private readonly IInstantiator _instantiator;
+    private readonly IObjectPoolService _objectPool;
     private readonly IStaticDataService _staticDataService;
 
-    public SoundEffectFactory(IInstantiator instantiator, IStaticDataService staticDataService)
+    public SoundEffectFactory(IObjectPoolService objectPool, IStaticDataService staticDataService)
     {
-      _instantiator = instantiator;
+      _objectPool = objectPool;
       _staticDataService = staticDataService;
     }
 
@@ -18,9 +19,9 @@ namespace Code.Infrastructure.States.GameStates
     {
       SoundEffectConfig config = _staticDataService.GetSoundEffectConfig(typeId);
 
-      SoundEffectItem item = _instantiator.InstantiatePrefabForComponent<SoundEffectItem>(config.ViewPrefab);
+      SoundEffectItem item = _objectPool.Get<SoundEffectItem>(config.ViewPrefab, Vector3.zero);
 
-      item.Initialize(config.AudioClip, config.Lifetime);
+      item.Initialize(config.ViewPrefab, config.AudioClip, config.Lifetime);
     }
   }
 }

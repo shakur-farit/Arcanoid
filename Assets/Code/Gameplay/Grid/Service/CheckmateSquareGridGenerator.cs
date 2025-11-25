@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Grid.Service
 {
   public class CheckmateSquareGridGenerator : IGridGenerator
   {

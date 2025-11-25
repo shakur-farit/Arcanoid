@@ -1,10 +1,11 @@
 using Code.Common.Extensions;
+using Code.Gameplay.Ball.Service;
 using Code.Infrastructure.States.GameStates;
 using Code.Infrastructure.States.StateMachine;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Ball.Behaviour
 {
   public class GameOverCollider : MonoBehaviour
   {

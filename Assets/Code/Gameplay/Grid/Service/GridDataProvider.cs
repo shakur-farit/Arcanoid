@@ -1,8 +1,9 @@
 using Code.Gameplay.Camera.Service;
+using Code.Gameplay.Grid.Config;
 using Code.Infrastructure.StaticData;
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Grid.Service
 {
   public class GridDataProvider : IGridDataProvider
   {

@@ -1,7 +1,8 @@
+using Code.Gameplay.Score.Service;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Brick.Behaviour
 {
   public class ScoreIncreaser : MonoBehaviour
   {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Loot.Factory
 {
   public interface ILootFactory
   {

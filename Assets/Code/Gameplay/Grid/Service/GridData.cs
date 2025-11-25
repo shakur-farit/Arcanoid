@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Grid.Service
 {
   public struct GridData
   {

@@ -1,7 +1,7 @@
 using Code.Infrastructure.States.GameStates;
 using Code.Infrastructure.States.StateMachine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Level.Service
 {
 	public class LevelCompleter : ILevelCompleter
 	{

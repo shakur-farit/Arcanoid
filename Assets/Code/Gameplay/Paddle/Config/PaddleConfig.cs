@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Paddle.Config
 {
 	[CreateAssetMenu(menuName = "Arcanoid/Paddle Config", fileName = "PaddleConfig")]
 	public class PaddleConfig : ScriptableObject

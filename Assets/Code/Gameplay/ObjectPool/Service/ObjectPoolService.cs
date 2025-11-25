@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.ObjectPool.Service
 {
 	public class ObjectPoolService : IObjectPoolService
 	{
@@ -31,7 +31,13 @@ namespace Code.Gameplay.Environment
 			}
 		}
 
-		public GameObject Get(GameObject prefab, Vector3 at)
+    public T Get<T>(GameObject prefab, Vector3 at) where T : Component
+    {
+      GameObject go = Get(prefab, at);
+      return go.GetComponent<T>();
+    }
+
+    public GameObject Get(GameObject prefab, Vector3 at)
 		{
 			if (_pools.TryGetValue(prefab, out Queue<GameObject> queue) && queue.Count > 0)
 			{
@@ -56,7 +62,7 @@ namespace Code.Gameplay.Environment
 
 		private GameObject CreateInstance(GameObject prefab, Vector3 at)
 		{
-			GameObject instance = _instantiator.InstantiatePrefabForComponent<GameObject>(
+			GameObject instance = _instantiator.InstantiatePrefab(
 				prefab,
 				position: at,
 				rotation: Quaternion.identity,

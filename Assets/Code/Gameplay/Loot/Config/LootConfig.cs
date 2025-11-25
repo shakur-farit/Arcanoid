@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Loot.Config
 {
   [CreateAssetMenu(menuName = "Arcanoid/Loot Config", fileName = "LootConfig")]
   public class LootConfig : ScriptableObject

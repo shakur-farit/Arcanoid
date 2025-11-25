@@ -1,4 +1,5 @@
-using Code.Gameplay.Environment;
+using Code.Gameplay.Ball.Service;
+using Code.Gameplay.Score.Service;
 
 namespace Code.Gameplay.Restart
 {

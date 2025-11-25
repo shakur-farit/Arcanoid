@@ -2,7 +2,7 @@ using Code.Infrastructure.States.GameStates;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Brick.Behaviour
 {
   public class BrickSoundEffectPlayer : MonoBehaviour
   {

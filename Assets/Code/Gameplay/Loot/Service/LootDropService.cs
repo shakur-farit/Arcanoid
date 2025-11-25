@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
+using Code.Gameplay.Loot.Config;
+using Code.Gameplay.Loot.Factory;
 using Code.Infrastructure.StaticData;
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Loot.Service
 {
   public class LootDropService : ILootDropService
   {

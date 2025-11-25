@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using Code.Gameplay.Loot;
+using Code.Gameplay.Loot.Service;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Brick.Behaviour
 {
   public class BrickLootDropper : MonoBehaviour
   {

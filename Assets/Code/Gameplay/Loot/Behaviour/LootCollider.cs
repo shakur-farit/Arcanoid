@@ -1,8 +1,9 @@
 using Code.Common.Extensions;
+using Code.Gameplay.Loot.Service;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Loot.Behaviour
 {
   public class LootCollider : MonoBehaviour
   {

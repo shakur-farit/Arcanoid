@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Ball.Behaviour
 {
   public class BallMover : MonoBehaviour
   {

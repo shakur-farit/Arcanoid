@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Code.Gameplay.Loot;
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Brick.Config
 {
 	[CreateAssetMenu(menuName = "Arcanoid/Brick Config", fileName = "BrickConfig")]
 	public class BrickConfig : ScriptableObject

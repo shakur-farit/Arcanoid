@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Environment.Config
 {
   [CreateAssetMenu(menuName = "Arcanoid/Environment Config", fileName = "EnvironmentConfig")]
   public class EnvironmentConfig : ScriptableObject

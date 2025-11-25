@@ -1,11 +1,18 @@
 using System.Collections.Generic;
-using UnityEngine;
+using Code.Gameplay.Level.Service;
+using Code.Gameplay.Loot.Behaviour;
+using Code.Gameplay.ObjectPool.Service;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Loot.Service
 {
   public class LootService : ILootService, ICleanable
   {
     private readonly List<LootItem> _loots = new();
+
+    private readonly IObjectPoolService _objectPool;
+
+    public LootService(IObjectPoolService objectPool) => 
+      _objectPool = objectPool;
 
     public void SetLoot(LootItem loot) => 
 	    _loots.Add(loot);
@@ -19,17 +26,13 @@ namespace Code.Gameplay.Environment
 
 		public void Clean()
     {
-      Debug.Log($"{_loots.Count} - on level end");
-
       foreach (LootItem loot in _loots) 
 	      Destroy(loot);
 
       _loots.Clear();
+    }
 
-      Debug.Log($"{_loots.Count} - after remove");
-		}
-
-		private void Destroy(LootItem loot) => 
-      Object.Destroy(loot.gameObject);
+    private void Destroy(LootItem loot) =>
+      _objectPool.Return(loot.ViewPrefab, loot.gameObject);
   }
 }

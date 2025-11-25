@@ -1,28 +1,28 @@
+using Code.Gameplay.ObjectPool.Service;
+using Code.Gameplay.Paddle.Behaviour;
+using Code.Gameplay.Paddle.Config;
 using Code.Infrastructure.StaticData;
-using UnityEngine;
-using Zenject;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Paddle.Factory
 {
 	public class PaddleFactory : IPaddleFactory
 	{
-		private readonly IInstantiator _instantiator;
-		private readonly IStaticDataService _staticDataService;
+    private readonly IObjectPoolService _objectPool;
+    private readonly IStaticDataService _staticDataService;
 
-		public PaddleFactory(IInstantiator instantiator, IStaticDataService staticDataService)
+		public PaddleFactory(IObjectPoolService objectPool, IStaticDataService staticDataService)
 		{
-			_instantiator = instantiator;
-			_staticDataService = staticDataService;
+      _objectPool = objectPool;
+      _staticDataService = staticDataService;
 		}
 
 		public void CreatePaddle()
 		{
 			PaddleConfig config = _staticDataService.GetPaddleConfig();
 
-			PaddleItem item = _instantiator.InstantiatePrefabForComponent<PaddleItem>(
-				config.ViewPrefab, config.StartPosition, Quaternion.identity, null);
+			PaddleItem item = _objectPool.Get<PaddleItem>(config.ViewPrefab, config.StartPosition);
 
-			item.Initialize(config.MovementSpeed);
+			item.Initialize(config.ViewPrefab, config.MovementSpeed);
 		}
 	}
 }

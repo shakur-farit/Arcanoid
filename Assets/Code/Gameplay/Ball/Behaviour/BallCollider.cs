@@ -1,9 +1,8 @@
-using System.Collections;
 using Code.Infrastructure.States.GameStates;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Gameplay.Environment
+namespace Code.Gameplay.Ball.Behaviour
 {
   public class BallCollider : MonoBehaviour
   {
