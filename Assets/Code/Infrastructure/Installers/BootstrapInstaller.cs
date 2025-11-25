@@ -44,6 +44,7 @@ namespace Code.Infrastructure.Installers
 		private void BindGameStates()
 		{
 			Container.BindInterfacesAndSelfTo<BootstrapState>().AsSingle();
+			Container.BindInterfacesAndSelfTo<ObjectPoolWarmupState>().AsSingle();
 			Container.BindInterfacesAndSelfTo<LoadStaticDataState>().AsSingle();
 			Container.BindInterfacesAndSelfTo<LoadingHomeScreenSceneState>().AsSingle();
 			Container.BindInterfacesAndSelfTo<HomeScreenState>().AsSingle();
@@ -86,6 +87,8 @@ namespace Code.Infrastructure.Installers
       Container.BindInterfacesAndSelfTo<LootService>().AsSingle();
       Container.Bind<ILootDropService>().To<LootDropService>().AsSingle();
       Container.Bind<ILootEffect>().To<ExtraBallEffect>().AsSingle();
+      Container.Bind<IObjectPoolService>().To<ObjectPoolService>().AsSingle();
+      Container.Bind<IObjectPoolWarmupper>().To<ObjectPoolWarmupper>().AsSingle();
     }
 
 		public void BindGameplayFactories()

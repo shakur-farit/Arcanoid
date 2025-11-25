@@ -26,10 +26,10 @@ namespace Code.Gameplay.Environment
 		{
 			if (other.MatchesCollisions(CollisionLayer.Ball.AsMask()))
 			{
+				DropLoot();
 				IncreaseScore();
 				RecalculateBrickCount();
 				PlaySoundEffect();
-				DropLoot();
 			}
 		}
 

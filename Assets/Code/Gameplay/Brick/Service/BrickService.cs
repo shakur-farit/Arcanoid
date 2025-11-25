@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Code.Gameplay.Environment
 {
-	public class BrickService : IBrickService, IRemovable
+	public class BrickService : IBrickService, ICleanable
 	{
 		private readonly List<BrickItem> _bricks = new();
 
@@ -20,12 +20,14 @@ namespace Code.Gameplay.Environment
 		public void AddBrick(BrickItem brick) => 
 			_bricks.Add(brick);
 
-    public void Remove()
+    public void Clean()
     {
       foreach (BrickItem brick in _bricks)
         DestroyBrick(brick);
 
       _bricks.Clear();
+
+			Debug.Log("CleaerBrciks");
     }
 
     private void DestroyBrick(BrickItem brick) => 

@@ -8,17 +8,31 @@ namespace Code.Gameplay.Environment
 {
   public class GameOverCollider : MonoBehaviour
   {
+	  [SerializeField] private BallItem _item;
+
     private IGameStateMachine _gameStateMachine;
+    private IBallService _ballService;
 
     [Inject]
-    public void Constructor(IGameStateMachine gameStateMachine) =>
-      _gameStateMachine = gameStateMachine;
+    public void Constructor(IGameStateMachine gameStateMachine, IBallService ballService)
+    {
+	    _gameStateMachine = gameStateMachine;
+	    _ballService = ballService;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-      if (collision.MatchesCollisions(CollisionLayer.GameOverBorder.AsMask()))
-        EnterGameOverState();
+	    if (collision.MatchesCollisions(CollisionLayer.GameOverBorder.AsMask()))
+	    {
+        RemoveBall();
+
+        if(_ballService.GetBalls().Count <=0)
+					EnterGameOverState();
+	    }
     }
+
+    private void RemoveBall() => 
+	    _ballService.RemoveBall(_item);
 
     private void EnterGameOverState() =>
       _gameStateMachine.Enter<GameOverState>();

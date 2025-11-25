@@ -1,3 +1,4 @@
+using Code.Gameplay.Environment;
 using Code.Infrastructure.States.Infrastructure;
 using Code.Meta.UI.Windows;
 using Code.Meta.UI.Windows.Service;
@@ -6,8 +7,8 @@ namespace Code.Infrastructure.States.GameStates
 {
 	public class GameOverState : IState
 	{
-    private readonly IWindowService _windowService;
-    private readonly IMusicPlayer _musicPlayer;
+		private readonly IWindowService _windowService;
+		private readonly IMusicPlayer _musicPlayer;
 
     public GameOverState(IWindowService windowService, IMusicPlayer musicPlayer)
     {
@@ -25,7 +26,7 @@ namespace Code.Infrastructure.States.GameStates
 		{
 		}
 
-    private void OpenGameOverWindow() => 
+		private void OpenGameOverWindow() => 
 	    _windowService.Open(WindowId.GameOverWindow);
 
     private void PlayGameOverMusic() => 

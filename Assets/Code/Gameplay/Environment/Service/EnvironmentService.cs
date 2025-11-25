@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace Code.Gameplay.Environment
 {
-  public class EnvironmentService : IEnvironmentService, IRemovable
+  public class EnvironmentService : IEnvironmentService, ICleanable
   {
     private EnvironmentItem _environment;
 
     public void SetEnvironment(EnvironmentItem environment) =>
       _environment = environment;
 
-    public void Remove() =>
+    public void Clean() =>
       Object.Destroy(_environment.gameObject);
   }
 }

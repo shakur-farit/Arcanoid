@@ -31,8 +31,8 @@ namespace Code.Infrastructure.States.GameStates
     public void Exit()
 		{
 		}
-
-    private void ProgressLevel() => 
+    
+		private void ProgressLevel() => 
 	    _progressService.ProgressLevel();
 
     private void OpenLevelCompleteWindow() => 

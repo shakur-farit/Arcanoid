@@ -33,6 +33,6 @@ namespace Code.Infrastructure.States.GameStates
       await _assetProvider.Initialize();
 
     private void EnterToLoadStaticDataState() => 
-      _stateMachine.Enter<LoadStaticDataState>();
+      _stateMachine.Enter<ObjectPoolWarmupState>();
   }
 }

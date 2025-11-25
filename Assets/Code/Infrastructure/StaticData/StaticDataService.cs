@@ -12,6 +12,7 @@ namespace Code.Infrastructure.StaticData
 {
 	public class StaticDataService : IStaticDataService
 	{
+    private const string ObjectPoolConfigPath = "ObjectPoolConfig";
     private const string LevelConfigPath = "LevelConfig";
     private const string EnvironmentConfigPath = "EnvironmentConfig";
     private const string GridConfigPath = "GridConfig";
@@ -24,6 +25,7 @@ namespace Code.Infrastructure.StaticData
     private const string SoundEffectConfigLabel = "SoundEffectConfig";
     private const string LootConfigLabel = "LootConfig";
 
+    private ObjectPoolConfig _objectPool;
     private LevelConfig _level;
     private EnvironmentConfig _environment;
     private GridConfig _grid;
@@ -44,6 +46,7 @@ namespace Code.Infrastructure.StaticData
 
 		public async UniTask LoadAll()
 		{
+      await LoadObjectPool();
       await LoadLevel();
       await LoadEnvironment();
       await LoadGrid();
@@ -55,6 +58,9 @@ namespace Code.Infrastructure.StaticData
       await LoadSoundEffects();
       await LoadLoots();
     }
+
+		public ObjectPoolConfig GetObjectPoolConfig() => 
+			_objectPool;
 
 		public LevelConfig GetLevelConfig() => 
 			_level;
@@ -106,7 +112,10 @@ namespace Code.Infrastructure.StaticData
       throw new Exception($"Loot config for {id} was not found");
     }
 
-    private async UniTask LoadLevel() => 
+    private async UniTask LoadObjectPool() =>
+	    _objectPool = await _assetProvider.Load<ObjectPoolConfig>(ObjectPoolConfigPath);
+
+		private async UniTask LoadLevel() => 
 	    _level = await _assetProvider.Load<LevelConfig>(LevelConfigPath);
 
     private async UniTask LoadEnvironment() =>

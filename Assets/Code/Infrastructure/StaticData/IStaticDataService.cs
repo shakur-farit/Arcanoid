@@ -16,9 +16,10 @@ namespace Code.Infrastructure.StaticData
     BrickConfig GetBrickConfig();
     PaddleConfig GetPaddleConfig();
     BallConfig GetBallConfig();
+    ObjectPoolConfig GetObjectPoolConfig();
     WindowConfig GetWindowConfig(WindowId id);
     MusicConfig GetMusicConfig(MusicTypeId id);
     SoundEffectConfig GetSoundEffectConfig(SoundEffectTypeId id);
     LootConfig GetLootConfig(LootTypeId id);
-  }
+	}
 }

@@ -4,15 +4,15 @@ namespace Code.Gameplay.Environment
 {
 	public class LevelCleaner : ILevelCleaner
 	{
-    private readonly IEnumerable<IRemovable> _removables;
+    private readonly IEnumerable<ICleanable> _removables;
 
-    public LevelCleaner(IEnumerable<IRemovable> removables) => 
+    public LevelCleaner(IEnumerable<ICleanable> removables) => 
       _removables = removables;
 
     public void CleanLevel()
 		{
-      foreach (IRemovable removable in _removables)
-        removable.Remove();
+      foreach (ICleanable removable in _removables)
+        removable.Clean();
     }
   }
 }
