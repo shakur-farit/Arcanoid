@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Code.Infrastructure.Loading
 {
   public class QuitGameService : IQuitGameService
